@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LojaComponent } from './dashboard/loja/loja.component';
 import { LojaService } from './dashboard/loja/loja.service';
+import { IntegradorComponent } from './dashboard/integrador/integrador.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LojaComponent
+    LojaComponent,
+    IntegradorComponent
   ],
   imports: [
     AppRoutingModule,
