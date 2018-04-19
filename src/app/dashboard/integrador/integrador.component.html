@@ -1,3 +1,33 @@
-<p>
-  integrador works!
-</p>
+<div class="content">
+<div class="row">
+  <br/>
+  <span class="p1">Gerar Arquivos Integrador</span>
+</div>
+<form [formGroup]="integradorForms" class="form-group">
+    <br/>
+    <div class="row">
+        <div class="col-sm-4">
+          <input type="file" (change)="onChange($event)" >
+        </div>
+        <div class="col-xs-10">
+        <input type="url" id="selected-file" size="100" placeholder=""> 
+        </div>
+      </div>
+      <br/>
+    <div class="row">
+      <div class="col-xs-10">
+       <input type="url" size="100" formControlName="urlsaida"  placeholder="Insira Url de saida ex.: C:\Program Files\NDDigital\eForms_NFCe\Concentrator Service\agent\in">
+      </div>
+    </div>
+    <br/>
+
+    <div class="row">
+      <div class=" col-xs-5">
+      <input id="qtdNotas" type="number" size="35" placeholder="Quantas notas ?" >
+    </div>
+      <div class="col-xs-5">
+      <input for="qtdNotas" type="checkbox" size="20"><span> Enviar documentos auxiliares ?</span>
+      </div>
+    </div>      
+</form>
+</div>

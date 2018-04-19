@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { IntegradorComponent } from './dashboard/integrador/integrador.component';
 
 const appRoutes: Routes = [
     {
@@ -26,6 +27,13 @@ const appRoutes: Routes = [
                 data: {
                     title: 'Cadastro de lojas'
                 }
+            },
+                {
+                    path: 'integrador',
+                    component: IntegradorComponent,
+                    data: {
+                        title: 'Ações Integrador'
+                    }
             }
         ]
     }

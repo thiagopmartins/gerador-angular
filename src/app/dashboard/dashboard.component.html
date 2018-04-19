@@ -11,7 +11,7 @@
     <div class="content-area">
       <header class="header-6">
         <div class="header-nav">
-          <a routerLink="/dashboard/paciente" class="active nav-link nav-text">{{ title }}</a>
+          <a routerLink="/dashboard/integrador" class="active nav-link nav-text">{{ title }}</a>
         </div>
       </header>
       <div class="row flex-items-xs-center">
@@ -25,6 +25,10 @@
         <clr-icon clrVerticalNavIcon shape="store" class="is-solid"></clr-icon>
         <span class="nav-text">Lojas</span>
       </a>    
+      <a clrVerticalNavLink routerLink="./integrador" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="rack-server" class="is-solid"></clr-icon>
+        <span class="nav-text">Integrador</span>
+      </a>   
     </clr-vertical-nav>
   </div>
 </div>
