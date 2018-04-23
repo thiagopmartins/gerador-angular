@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class IntegradorComponent implements OnInit {
 
   integradorForms: FormGroup
-
+  docAuxiliares: boolean = false
   constructor(private formBuilder: FormBuilder) { }
 
 
@@ -18,16 +18,17 @@ export class IntegradorComponent implements OnInit {
   ngOnInit() {
     this.integradorForms = this.formBuilder.group({
       urlsaida: this.formBuilder.control('', Validators.required),
-
-
     })
-
-    
   }
 
   onChange(event) {
     var files = event.srcElement.files;
     console.log(files);
+  }
+
+  onDocAux(){
+    this.docAuxiliares = this.docAuxiliares ? true : false
+    console.log('clik')
   }
 
 }

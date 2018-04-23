@@ -9,9 +9,6 @@
         <div class="col-sm-4">
           <input type="file" class="bg-green" (change)="onChange($event)" >
         </div>
-        <div class="col-xs-10">
-        <input type="url" id="selected-file" size="100" placeholder=""> 
-        </div>
       </div>
       <br/>
     <div class="row">
@@ -26,8 +23,14 @@
       <input id="qtdNotas" type="number" size="35" placeholder="Quantas notas ?" >
     </div>
       <div class="col-xs-5">
-      <input for="qtdNotas" type="checkbox" size="20"><span> Enviar documentos auxiliares ?</span>
+      <input for="qtdNotas" (click)="onDocAux()" type="checkbox" size="20"><span> Enviar documentos auxiliares ?</span>
       </div>
-    </div>      
+    </div> 
+    
+    <div class="row" *ngIf="docAuxiliares">
+        <span> TESTES</span>
+    </div>
+    
+
 </form>
 </div>
