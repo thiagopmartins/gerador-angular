@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { IntegradorService } from './integrador.service';
 
 
 @Component({
@@ -11,27 +12,54 @@ export class IntegradorComponent implements OnInit {
 
   integradorForms: FormGroup
   docAuxiliares: boolean = false
-  constructor(private formBuilder: FormBuilder) { }
+  typeTEF: boolean = true
+  typePOS: boolean 
+  file: string
+
+  constructor(private formBuilder: FormBuilder,
+              private integradorService: IntegradorService) { }
 
 
 
   ngOnInit() {
     this.integradorForms = this.formBuilder.group({
       urlsaida: this.formBuilder.control('', Validators.required),
+      qtdNotas: this.formBuilder.control('', Validators.required),
+      qtdPagamentos: this.formBuilder.control(''),
+      nomeArquivo: this.formBuilder.control('', Validators.required)
     })
   }
 
   onChange(event) {
+    let reader = new FileReader();
     var files = event.srcElement.files;
-    console.log(files);
-  }
+
+    reader.readAsText(files[0]);
+      reader.onload = () => {
+        this.file = reader.result
+      };
+
+     }
 
   onDocAux(){
     if(this.docAuxiliares) this.docAuxiliares = false
     else
     this.docAuxiliares =  true
-    
-    console.log('clik')
-  }
+    }
+
+    onClickCreateFile(){
+     this.integradorService.createEnv(this.integradorForms.controls['qtdNotas'].value,this.file)
+    }
+
+
+  onTypeDocAux(type){
+    if(type === 'TEF'){
+      this.typeTEF = true
+      this.typePOS = false
+    }else{
+      this.typeTEF = false
+      this.typePOS = true
+    }
+  }  
 
 }

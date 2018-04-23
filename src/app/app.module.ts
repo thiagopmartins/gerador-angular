@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LojaComponent } from './dashboard/loja/loja.component';
 import { LojaService } from './dashboard/loja/loja.service';
 import { IntegradorComponent } from './dashboard/integrador/integrador.component';
+import { IntegradorService } from './dashboard/integrador/integrador.service';
 
 
 
@@ -32,7 +33,7 @@ import { IntegradorComponent } from './dashboard/integrador/integrador.component
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [LojaService],
+  providers: [LojaService,IntegradorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
