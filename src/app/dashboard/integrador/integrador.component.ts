@@ -27,7 +27,10 @@ export class IntegradorComponent implements OnInit {
   }
 
   onDocAux(){
-    this.docAuxiliares = this.docAuxiliares ? true : false
+    if(this.docAuxiliares) this.docAuxiliares = false
+    else
+    this.docAuxiliares =  true
+    
     console.log('clik')
   }
 
