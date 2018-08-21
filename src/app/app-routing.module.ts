@@ -1,15 +1,14 @@
-import { LojaComponent } from './dashboard/loja/loja.component';
+import { EmpresaComponent } from './dashboard/empresa/empresa.component';
 import { Title } from '@angular/platform-browser';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { IntegradorComponent } from './dashboard/integrador/integrador.component';
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/dashboard/empresa',
         pathMatch: 'full'
     },
     {
@@ -18,22 +17,15 @@ const appRoutes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: '/dashboard/loja',
+                redirectTo: '/dashboard/empresa',
                 pathMatch: 'full'
             },
             {
-                path: 'loja',
-                component: LojaComponent,
+                path: 'empresa',
+                component: EmpresaComponent,
                 data: {
-                    title: 'Cadastro de lojas'
+                    title: 'Cadastro de Empresa'
                 }
-            },
-                {
-                    path: 'integrador',
-                    component: IntegradorComponent,
-                    data: {
-                        title: 'Ações Integrador'
-                    }
             }
         ]
     }

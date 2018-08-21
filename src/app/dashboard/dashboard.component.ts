@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   title: String;
+  options: any[] = [];
 
   constructor(
     private router: Router,
@@ -21,6 +22,11 @@ export class DashboardComponent implements OnInit {
     });
   }
   ngOnInit() {
-
+    this.options = [
+      {
+        title: 'Empresas',
+        icon: 'store'
+      }
+    ];
   }
 }

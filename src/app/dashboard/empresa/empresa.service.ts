@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class LojaService {
+export class EmpresaService {
 
     private teste: string;
 

@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"ng serve\" \"npm run electron\"",
+    "web": "ng serve",
     "electron": "electron ./src/electron.dev",
     "build": "ng build",
     "test": "ng test",

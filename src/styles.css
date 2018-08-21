@@ -70,3 +70,6 @@ body, h6 {
     color: #FFF !important;
 }
 .search { margin: 0 0.15rem 0 0.7rem !important; }
+.modal-dialog.modal-lg {
+    width: 28rem !important;
+}

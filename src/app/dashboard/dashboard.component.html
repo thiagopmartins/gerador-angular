@@ -1,7 +1,7 @@
 <header class="header-4">
   <div class="branding">
     <a routerLink="/dashboard" class="nav-link">
-      <clr-icon shape="vm-bug"></clr-icon>
+      <img src="../../assets/icon-logo.png" id="img-logo">
       <span class="title">Ferramenta NFCe</span>
     </a>
   </div>
@@ -21,14 +21,10 @@
       </div>
     </div>
     <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
-      <a clrVerticalNavLink routerLink="./loja" routerLinkActive="active">
-        <clr-icon clrVerticalNavIcon shape="store" class="is-solid"></clr-icon>
-        <span class="nav-text">Lojas</span>
+      <a clrVerticalNavLink *ngFor="let p of options" [routerLink]="p.link" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon [attr.shape]="p.icon" class="is-solid"></clr-icon>
+        <span class="nav-text">{{ p.title }}</span>
       </a>
-      <a clrVerticalNavLink routerLink="./integrador" routerLinkActive="active">
-        <clr-icon clrVerticalNavIcon shape="rack-server" class="is-solid"></clr-icon>
-        <span class="nav-text">Integrador</span>
-      </a>   
     </clr-vertical-nav>
   </div>
 </div>

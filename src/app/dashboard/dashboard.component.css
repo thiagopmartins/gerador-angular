@@ -1,5 +1,6 @@
 .header.header-4, header.header-4 {
-    background-color: #06cbb6 !important;
+    background-color: #2fb995 !important;
+    height: 2rem;
 }
 .header .branding .title, header .branding .title {
     font-size: 0.75rem !important;
@@ -10,14 +11,15 @@
     width: 8rem;
     background-color: #F1F1F1;
 }
+.header .branding > .nav-link, .header .branding > a, header .branding > .nav-link, header .branding > a { height: 2.0rem; }
 .is-collapsed .nav-link.active, .is-collapsed .nav-link:hover {
     padding-left: 0.5rem !important;
 }
 .clr-vertical-nav .nav-link.active, .clr-vertical-nav .nav-link:hover {
     font-weight: 600;
-    border-left: 0.2rem solid #06cbb6;
+    border-left: 0.2rem solid #2fb995;
     padding-left: 1.0rem;
-    color: #06cbb6;
+    color: #2fb995;
 }
 .main-container:not([class*=open-overflow-menu]):not([class*=open-hamburger-menu]) .clr-vertical-nav.is-collapsed.has-icons .nav-link {
     padding-left: 0.7rem;
@@ -27,7 +29,7 @@
     /* margin-left: .666667rem; */
 }
 .clr-vertical-nav .nav-link.active .nav-icon, .clr-vertical-nav .nav-link:hover .nav-icon {
-    fill: #06cbb6 !important;
+    fill: #2fb995 !important;
 }
 .main-container {
     position: fixed;
@@ -50,3 +52,4 @@ form { padding-left: 2rem; }
 .form .form-group, form .form-group { padding-left: 5.7rem !important; }
 .header .header-nav .nav-link, header .header-nav .nav-link{ color: #000 !important; }
 .nav-text { margin-left: 5px !important; }
+#img-logo { height: 25px; }

@@ -1,3 +1,4 @@
+import { DialogService } from './dialog.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,19 +11,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LojaComponent } from './dashboard/loja/loja.component';
-import { LojaService } from './dashboard/loja/loja.service';
-import { IntegradorComponent } from './dashboard/integrador/integrador.component';
-import { IntegradorService } from './dashboard/integrador/integrador.service';
-
+import { EmpresaComponent } from './dashboard/empresa/empresa.component';
+import { EmpresaService } from './dashboard/empresa/empresa.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LojaComponent,
-    IntegradorComponent,
+    EmpresaComponent,
+    
   ],
   imports: [
     AppRoutingModule,
@@ -33,7 +31,7 @@ import { IntegradorService } from './dashboard/integrador/integrador.service';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [LojaService,IntegradorService],
+  providers: [DialogService, EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
