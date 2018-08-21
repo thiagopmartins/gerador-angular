@@ -37,7 +37,7 @@ export class EmpresaComponent implements OnInit {
       id: [],
       nomenclatura: ['', Validators.required],
       cnpj: ['', Validators.compose([Validators.required, Validators.pattern(/[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}\-[0-9]{2}/)])],
-    ie: ['', Validators.compose([Validators.required, Validators.pattern(/\d+/)])]
+      ie: ['', Validators.compose([Validators.required, Validators.pattern(/\d+/)])]
     });
     this.controladores = Object.keys(this.form.controls);
     this.validador();
