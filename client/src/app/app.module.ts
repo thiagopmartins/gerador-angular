@@ -1,10 +1,7 @@
-import { ApolloConfigModule } from './apollo-config.module';
+import { CoreModule } from './core/core.module';
 import { DialogService } from './dialog.service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { ClarityModule } from "@clr/angular";
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -24,11 +21,8 @@ import { EmpresaService } from './dashboard/empresa/empresa.service';
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    ClarityModule,
+    CoreModule,
     FormsModule,
-    ApolloConfigModule,
     ReactiveFormsModule
   ],
   providers: [DialogService, EmpresaService],
