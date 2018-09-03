@@ -4,6 +4,7 @@ import { EmpresaModel } from './EmpresaModel';
 import { Component, OnInit } from '@angular/core';
 import { EmpresaService } from './empresa.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class EmpresaComponent implements OnInit {
   empresas: EmpresaModel[] = [];
   empresaSelecionada: EmpresaModel;
   form: FormGroup;
+
+  empresas$: Observable<EmpresaModel[]>;
 
   basic: boolean;
   editando: boolean = false;
@@ -34,12 +37,14 @@ export class EmpresaComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       id: [],
-      nomenclatura: ['', Validators.required],
+      name: ['', Validators.required],
       cnpj: ['', Validators.compose([Validators.required, Validators.pattern(/[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}\-[0-9]{2}/)])],
       ie: ['', Validators.compose([Validators.required, Validators.pattern(/\d+/)])]
     });
     this.controladores = Object.keys(this.form.controls);
     this.validador();
+    this.empresas$ = this.empresaService.allEnterprises();
+    console.log(this.empresas$);
   }
   onCreate(): void {
     this.basic = true;
@@ -80,7 +85,7 @@ export class EmpresaComponent implements OnInit {
     this.empresaSelecionada = null;
   }
   onDelete(): void {
-    this.dialogService.confirm(`Deseja deletar a empresa ${this.empresaSelecionada.nomenclatura} ?`)
+    this.dialogService.confirm(`Deseja deletar a empresa ${this.empresaSelecionada.name} ?`)
     .then((canDelete: boolean) => {
         if (canDelete) {
           this.empresas.forEach( (item, index) => {

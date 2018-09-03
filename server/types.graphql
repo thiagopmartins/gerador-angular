@@ -1,0 +1,19 @@
+# The following types define the data model of the example service
+# based on which the GraphQL API is generated
+
+type User @model {
+  id: ID! @isUnique
+  name: String!
+  password: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Enterprise @model {
+  id: ID! @isUnique
+  name: String!
+  cnpj: String!
+  ie: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!  
+}

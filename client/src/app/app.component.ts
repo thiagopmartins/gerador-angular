@@ -23,7 +23,6 @@ export class AppComponent {
     private apollo: Apollo,
   ) {
     //this.createUser();
-    this.allUsers();
   }
 
   createUser(): void {
@@ -47,19 +46,5 @@ export class AppComponent {
     }).subscribe(res => console.log(res));
   }
 
-  allUsers(): void {
-    this.apollo.query({
-      query: gql`
-        query {
-          users {
-            id
-            name
-            email
-          }
-        }
-      `
-    }).subscribe(res => console.log(res)); 
-
-  }
 
 }

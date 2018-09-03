@@ -1,6 +1,6 @@
 export interface EmpresaModel {
     id?: number;
-    nomenclatura?: string;
+    name?: string;
     cnpj?: string;
     ie?: string;
 }

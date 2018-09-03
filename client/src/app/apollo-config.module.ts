@@ -22,7 +22,7 @@ export class ApolloConfigModule {
         private apollo: Apollo,
         private httpLink: HttpLink
     ) {
-        const uri = 'http://localhost:3000/api';
+        const uri = 'https://api.graph.cool/simple/v1/cjlmioi713jc40158n8djn3uf';
         const http = httpLink.create({ uri });
 
         const linkError = onError(({ graphQLErrors, networkError }) => {
