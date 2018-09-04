@@ -10,12 +10,10 @@
     </div>
   </clr-dg-action-bar>
   <clr-dg-placeholder>Sem empresas cadastradas!</clr-dg-placeholder>
-  <clr-dg-column>Empresa ID</clr-dg-column>
   <clr-dg-column>Nomenclatura</clr-dg-column>
   <clr-dg-column>CNPJ</clr-dg-column>
   <clr-dg-column>IE</clr-dg-column>
-  <clr-dg-row *clrDgItems="let empresa of empresas$ | async" [clrDgItem]="empresa" (dblclick)="onEdit()">
-    <clr-dg-cell>{{ empresa.id }}</clr-dg-cell>
+  <clr-dg-row *clrDgItems="let empresa of empresas" [clrDgItem]="empresa" (dblclick)="onEdit()">
     <clr-dg-cell>{{ empresa.name }}</clr-dg-cell>
     <clr-dg-cell>{{ empresa.cnpj }}</clr-dg-cell>
     <clr-dg-cell>{{ empresa.ie }}</clr-dg-cell>

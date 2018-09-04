@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class EmpresaComponent implements OnInit {
 
-  
+
   empresas: EmpresaModel[] = [];
   empresaSelecionada: EmpresaModel;
   form: FormGroup;
@@ -26,7 +26,7 @@ export class EmpresaComponent implements OnInit {
   controladores: string[] = [];
   erro: string[] = [];
 
-  
+
 
   constructor(
     private fb: FormBuilder,
@@ -43,8 +43,8 @@ export class EmpresaComponent implements OnInit {
     });
     this.controladores = Object.keys(this.form.controls);
     this.validador();
-    this.empresas$ = this.empresaService.allEnterprises();
-    console.log(this.empresas$);
+    this.empresaService.allEnterprises()
+    .subscribe(res => this.empresas = res);
   }
   onCreate(): void {
     this.basic = true;
@@ -65,38 +65,38 @@ export class EmpresaComponent implements OnInit {
     }
   }
   validador(): void {
-    for(let controlador of this.controladores){  
+    for (let controlador of this.controladores) {
       this.form.get(`${controlador}`).valueChanges.subscribe(() => {
         if (this.form.get(`${controlador}`).invalid && this.form.get(`${controlador}`))
           (this.form.get(`${controlador}`).errors.required ? this.erro[`${controlador}`] = `O campo ${controlador.toUpperCase()} é obrigatório` : this.erro[`${controlador}`] = `O campo ${controlador.toUpperCase()} está inválido`);
       });
     }
-}
+  }
   onSave(): void {
     this.basic = false;
-    let empresaId: number;
-    if (this.editando)
-      empresaId = this.empresaSelecionada.id - 1;
-    else
-      (this.empresas.length == undefined ? empresaId = 0 : empresaId = this.empresas.length);
-    
-    this.form.controls["id"].setValue(empresaId + 1);
-    this.empresas[`${empresaId}`] = this.form.value;
+    this.empresaService.createEnterprise(this.form.value)
+      .subscribe(res => { 
+        if(res.id){
+          console.log(res);
+          console.log(this.empresas);
+          this.empresas = this.empresas.concat(res);
+        }
+      });
     this.empresaSelecionada = null;
   }
   onDelete(): void {
     this.dialogService.confirm(`Deseja deletar a empresa ${this.empresaSelecionada.name} ?`)
-    .then((canDelete: boolean) => {
+      .then((canDelete: boolean) => {
         if (canDelete) {
-          this.empresas.forEach( (item, index) => {
-            if(item.id === this.empresaSelecionada.id) this.empresas.splice(index,1);
+          this.empresas.forEach((item, index) => {
+            if (item.id === this.empresaSelecionada.id) this.empresas.splice(index, 1);
           });
           this.empresaSelecionada = null;
         }
-    });    
+      });
   }
-  
-  isValidForm(controlador: string): boolean{
+
+  isValidForm(controlador: string): boolean {
     return this.form.get(`${controlador}`).invalid && (this.form.get(`${controlador}`).dirty || this.form.get(`${controlador}`).touched);
   }
 

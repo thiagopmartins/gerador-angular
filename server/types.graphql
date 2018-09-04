@@ -12,7 +12,7 @@ type User @model {
 type Enterprise @model {
   id: ID! @isUnique
   name: String!
-  cnpj: String!
+  cnpj: String! @isUnique
   ie: String!
   createdAt: DateTime!
   updatedAt: DateTime!  
