@@ -33,8 +33,25 @@ export const CREATE_ENTERPRISE_MUTATION = gql `
     }
 `;
 
+export const UPDATE_ENTERPRISE_MUTATION = gql `
+    mutation UpdateEnterpriseMutation($id: ID!, $name: String!, $cnpj: String!, $ie: String!){
+        updateEnterprise(
+            id: $id
+            name: $name
+            cnpj: $cnpj
+            ie: $ie
+        ){
+            id
+            name
+            cnpj
+            ie
+        }
+    }
+
+`;
+
 export const DELETE_ENTERPRISE_MUTATION = gql `
-    mutation DeleteEnterpriseMutation($id: String!){
+    mutation DeleteEnterpriseMutation($id: ID!){
         deleteEnterprise(
             id: $id
         ){
