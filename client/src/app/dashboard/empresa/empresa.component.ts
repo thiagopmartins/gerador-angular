@@ -4,7 +4,7 @@ import { EmpresaModel } from './EmpresaModel';
 import { Component, OnInit } from '@angular/core';
 import { EmpresaService } from './empresa.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { ElectronService } from '../../providers/electron.service';
 
 @Component({
   selector: 'app-empresa',
@@ -31,7 +31,8 @@ export class EmpresaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dialogService: DialogService,
-    private empresaService: EmpresaService
+    private empresaService: EmpresaService,
+    private electron: ElectronService
   ) { }
 
   ngOnInit() {
@@ -44,6 +45,12 @@ export class EmpresaComponent implements OnInit {
     });
     this.controladores = Object.keys(this.form.controls);
     this.validador();
+    
+    if(this.electron.isElectron()){
+      this.electron.fs.writeFileSync('C:\\Program Files\\NDDigital\\eForms_NFCe\\SAT Server Service\\teste.txt', 'escrevendo....');
+    }
+    else
+      console.warn("Aplicação deve ser executada nativamente em seu sistema para ter acesso a todos os recursos.");
     this.empresaService.allEnterprises()
       .subscribe(res => {
         _empresas = res;

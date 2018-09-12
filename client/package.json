@@ -5,9 +5,9 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"ng serve\" \"npm run electron\"",
-    "web": "ng serve",
     "electron": "electron ./src/electron.dev",
-    "build": "ng build",
+    "electron-prod": "npm run build && electron ./dist/electron.prod",
+    "build": "ng build && npm run arquivos",
     "test": "ng test",
     "lint": "ng lint",
     "arquivos": "copyfiles -f src/package.json dist && copyfiles -f src/*.js dist",

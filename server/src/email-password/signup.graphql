@@ -1,4 +1,4 @@
-type SignupUserPayload {
+type SignupUserPayload { //NÃO SERÁ PERSISTIDO NO BANCO DE DADOS
   id: ID!
   token: String!
 }

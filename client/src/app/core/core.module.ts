@@ -3,13 +3,15 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ApolloConfigModule } from './../apollo-config.module';
+import { ElectronService } from '../providers/electron.service';
 
 @NgModule({
   exports: [
     ApolloConfigModule,
     ClarityModule,
     BrowserAnimationsModule,
-  ]
+  ],
+  providers: [ElectronService]
 })
 export class CoreModule {
 

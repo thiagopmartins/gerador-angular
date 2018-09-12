@@ -26,7 +26,6 @@ export default async (event: FunctionEvent<EventData>) => {
     if (!validator.isEmail(email)) {
       return { error: 'Not a valid email' }
     }
-
     // check if user exists already
     const userExists: boolean = await getUser(api, email)
       .then(r => r.User !== null)
