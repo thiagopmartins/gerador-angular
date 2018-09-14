@@ -1,7 +1,6 @@
 import { EmpresaComponent } from './dashboard/empresa/empresa.component';
-import { Title } from '@angular/platform-browser';
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -39,6 +38,4 @@ const appRoutes: Routes = [
         RouterModule
     ]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }

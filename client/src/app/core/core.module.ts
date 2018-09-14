@@ -18,7 +18,8 @@ export class CoreModule {
   constructor(
     @Optional() @SkipSelf() parentModel: CoreModule // * APENAS UM MÓDULO (AppModule) PODERÁ IMPORTAR O CoreModule
   ) {
-    if (parentModel)
-      throw new Error ('CoreModule dever ser importado apenas no AppModule.');
+    if (parentModel){
+      throw new Error('CoreModule dever ser importado apenas no AppModule.');
+    }
   }
 }

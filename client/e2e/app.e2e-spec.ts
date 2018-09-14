@@ -1,14 +1,14 @@
-import { HeiHealthPage } from './app.po';
+import { FerramentaNFCePage } from './app.po';
 
-describe('hei-health App', () => {
-  let page: HeiHealthPage;
+describe('Ferramenta NFC-e', () => {
+  let page: FerramentaNFCePage;
 
   beforeEach(() => {
-    page = new HeiHealthPage();
+    page = new FerramentaNFCePage();
   });
 
-  it('should display message saying app works', () => {
+  it('Deve exibir o titulo', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Ferramenta NFCe');
   });
 });

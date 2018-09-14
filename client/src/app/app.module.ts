@@ -16,8 +16,7 @@ import { EmpresaService } from './dashboard/empresa/empresa.service';
   declarations: [
     AppComponent,
     DashboardComponent,
-    EmpresaComponent,
-    
+    EmpresaComponent
   ],
   imports: [
     AppRoutingModule,

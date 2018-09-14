@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { ALL_ENTERPRISES_QUERY, AllEnterprisesQuery, CREATE_ENTERPRISE_MUTATION, DELETE_ENTERPRISE_MUTATION, UPDATE_ENTERPRISE_MUTATION } from './empresa.graphql';
 import { Apollo } from 'apollo-angular';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { EmpresaModel } from './EmpresaModel';
 import { map } from 'rxjs/operators';
 

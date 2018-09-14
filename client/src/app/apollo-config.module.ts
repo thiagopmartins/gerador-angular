@@ -26,14 +26,16 @@ export class ApolloConfigModule {
         const http = httpLink.create({ uri });
 
         const linkError = onError(({ graphQLErrors, networkError }) => {
-            if (graphQLErrors)
+            if (graphQLErrors) {
                 graphQLErrors.map(({ message, locations, path }) =>
                     console.log(
                         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
                     ),
                 );
-
-            if (networkError) console.log(`[Network error]: ${networkError}`);
+            }
+            if (networkError) {
+                console.log(`[Network error]: ${networkError}`);
+            }
         });
 
         apollo.create({
@@ -42,10 +44,9 @@ export class ApolloConfigModule {
                 http
             ]),
             cache: new InMemoryCache({
-                addTypename: false,
+                addTypename: false
             }),
-            connectToDevTools: true //!environment.production
+            connectToDevTools: true // !environment.production
         });
     }
-
 }

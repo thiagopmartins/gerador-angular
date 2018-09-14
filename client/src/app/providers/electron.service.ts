@@ -21,14 +21,13 @@ export class ElectronService {
       this.ipcRenderer = (<any>window).require('electron').ipcRenderer;
       this.webFrame = (<any>window).require('electron').webFrame;
       this.remote = (<any>window).require('electron').remote;
-        
       this.childProcess = (<any>window).require('child_process');
       this.fs = (<any>window).require('fs');
     }
   }
 
   isElectron = () => {
-    return ((<any>window).process == undefined ? false : true);
+    return ((<any>window).process === undefined ? false : true);
   }
 
 }

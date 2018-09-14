@@ -45,7 +45,7 @@
     height: 1.55rem !important;
     border-bottom: 1px solid #ccc !important;    
     background-color: #f1f1f1;
-    color: #000 !important;
+    color: #56565656 !important;
 }
 header .header-nav .nav-link.nav-text { line-height: 1.5rem; }
 form { padding-left: 2rem; }
@@ -53,3 +53,6 @@ form { padding-left: 2rem; }
 .header .header-nav .nav-link, header .header-nav .nav-link{ color: #000 !important; }
 .nav-text { margin-left: 5px !important; }
 #img-logo { height: 25px; }
+.header[_ngcontent-c1] .header-nav[_ngcontent-c1] .nav-link[_ngcontent-c1], header[_ngcontent-c1] .header-nav[_ngcontent-c1] .nav-link[_ngcontent-c1] {
+    color: #565656 !important;
+}

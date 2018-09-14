@@ -13,20 +13,14 @@ import { ElectronService } from '../../providers/electron.service';
 })
 export class EmpresaComponent implements OnInit {
 
-
   empresas: EmpresaModel[];
   empresaSelecionada: EmpresaModel;
   form: FormGroup;
-
-  //empresas$: Observable<EmpresaModel[]>;
-
   submitLoading: boolean = false;
   basic: boolean;
   editando: boolean = false;
   controladores: string[] = [];
   erro: string[] = [];
-
-
 
   constructor(
     private fb: FormBuilder,
@@ -45,16 +39,15 @@ export class EmpresaComponent implements OnInit {
     });
     this.controladores = Object.keys(this.form.controls);
     this.validador();
-    
-    if(this.electron.isElectron()){
+    if (this.electron.isElectron()) {
       this.electron.fs.writeFileSync('C:\\Program Files\\NDDigital\\eForms_NFCe\\SAT Server Service\\teste.txt', 'escrevendo....');
+    } else {
+      console.warn('Aplicação deve ser executada nativamente em seu sistema para ter acesso a todos os recursos.');
     }
-    else
-      console.warn("Aplicação deve ser executada nativamente em seu sistema para ter acesso a todos os recursos.");
     this.empresaService.allEnterprises()
       .subscribe(res => {
         _empresas = res;
-        this.empresas = _empresas.concat(); //TODO ANALISAR MELHORIA, NECESSÁRIO PARA TER ACESSO COMPLETO AO ARRAY DE EMPRESAS
+        this.empresas = _empresas.concat(); // TODO ANALISAR MELHORIA, NECESSÁRIO PARA TER ACESSO COMPLETO AO ARRAY DE EMPRESAS
       });
   }
   onCreate(): void {
@@ -64,22 +57,24 @@ export class EmpresaComponent implements OnInit {
       this.empresaSelecionada = null;
     }
     this.form.reset();
-    for (let controlador of this.controladores) {
+    for (const controlador of this.controladores) {
       this.form.controls[`${controlador}`].setValue('');
     }
   }
   onEdit(): void {
     this.editando = true;
     this.basic = true;
-    for (let controlador of this.controladores) {
+    for (const controlador of this.controladores) {
       this.form.controls[`${controlador}`].setValue(this.empresaSelecionada[`${controlador}`]);
     }
   }
   validador(): void {
-    for (let controlador of this.controladores) {
+    for (const controlador of this.controladores) {
       this.form.get(`${controlador}`).valueChanges.subscribe(() => {
-        if (this.form.get(`${controlador}`).invalid && this.form.get(`${controlador}`))
-          (this.form.get(`${controlador}`).errors.required ? this.erro[`${controlador}`] = `O campo ${controlador.toUpperCase()} é obrigatório` : this.erro[`${controlador}`] = `O campo ${controlador.toUpperCase()} está inválido`);
+        if (this.form.get(`${controlador}`).invalid && this.form.get(`${controlador}`)) {
+          (this.form.get(`${controlador}`).errors.required ? this.erro[`${controlador}`] =
+            `O campo ${controlador.toUpperCase()} é obrigatório` : this.erro[`${controlador}`] = `O campo ${controlador.toUpperCase()} está inválido`);
+        }
       });
     }
   }
@@ -91,23 +86,23 @@ export class EmpresaComponent implements OnInit {
           console.log(res);
           if (res.id) {
             for (const index in this.empresas) {
-              if (this.empresas[index].id == res.id)
+              if (this.empresas[index].id === res.id) {
                 this.empresas[index] = res;
+              }
             }
-          }          
+          }
           this.basic = false;
           this.empresaSelecionada = null;
-          this.submitLoading = false;          
-        },
-        error => {
           this.submitLoading = false;
-          //TODO MELHORAR A TRATATIVA DE ERROS [CRIAR UM SERVIÇO SET ERROR]
-          this.form.controls['cnpj'].setErrors({ 'incorrect': true });
-          this.erro['cnpj'] = "O CNPJ cadastrado já existe em nosso banco de dados!";
-        }
-      );
-    }
-    else {
+        },
+          error => {
+            this.submitLoading = false;
+            // TODO MELHORAR A TRATATIVA DE ERROS [CRIAR UM SERVIÇO SET ERROR]
+            this.form.controls['cnpj'].setErrors({ 'incorrect': true });
+            this.erro['cnpj'] = 'O CNPJ cadastrado já existe em nosso banco de dados!';
+          }
+        );
+    } else {
       this.empresaService.createEnterprise(this.form.value)
         .subscribe(res => {
           if (res.id) {
@@ -119,9 +114,9 @@ export class EmpresaComponent implements OnInit {
         },
           error => {
             this.submitLoading = false;
-            //TODO MELHORAR A TRATATIVA DE ERROS [CRIAR UM SERVIÇO SET ERROR]
+            // TODO MELHORAR A TRATATIVA DE ERROS [CRIAR UM SERVIÇO SET ERROR]
             this.form.controls['cnpj'].setErrors({ 'incorrect': true });
-            this.erro['cnpj'] = "O CNPJ cadastrado já existe em nosso banco de dados!";
+            this.erro['cnpj'] = 'O CNPJ cadastrado já existe em nosso banco de dados!';
           }
         );
     }
@@ -134,8 +129,9 @@ export class EmpresaComponent implements OnInit {
             .subscribe(res => {
               if (res.id) {
                 for (const index in this.empresas) {
-                  if (this.empresas[index].id == res.id)
+                  if (this.empresas[index].id === res.id) {
                     this.empresas.splice(+ index, 1);
+                  }
                 }
               }
             });
