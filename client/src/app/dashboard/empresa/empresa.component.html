@@ -10,12 +10,12 @@
     </div>
   </clr-dg-action-bar>
   <clr-dg-placeholder>Sem empresas cadastradas!</clr-dg-placeholder>
+  <clr-dg-column [clrDgField]="'name'" [clrDgSortOrder]="descSort">Nome</clr-dg-column>
   <clr-dg-column [clrDgField]="'cnpj'">CNPJ</clr-dg-column>
-  <clr-dg-column [clrDgField]="'name'">Nomenclatura</clr-dg-column>
   <clr-dg-column [clrDgField]="'ie'">IE</clr-dg-column>
   <clr-dg-row *clrDgItems="let empresa of empresas" [clrDgItem]="empresa" (dblclick)="onEdit()">
-    <clr-dg-cell>{{ empresa.cnpj }}</clr-dg-cell>
     <clr-dg-cell>{{ empresa.name }}</clr-dg-cell>
+    <clr-dg-cell>{{ empresa.cnpj }}</clr-dg-cell>
     <clr-dg-cell>{{ empresa.ie }}</clr-dg-cell>
   </clr-dg-row>
   <clr-dg-footer>

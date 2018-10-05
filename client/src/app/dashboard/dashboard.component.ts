@@ -25,8 +25,14 @@ export class DashboardComponent implements OnInit {
     this.options = [
       {
         title: 'Empresas',
-        icon: 'store'
-      }
+        icon: 'store',
+        link:   './empresa'
+      },
+      {
+        title: 'Integrador',
+        icon: 'deploy',
+        link:   './integrador'
+      }      
     ];
   }
 }

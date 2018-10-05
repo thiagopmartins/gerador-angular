@@ -56,3 +56,6 @@ form { padding-left: 2rem; }
 .header[_ngcontent-c1] .header-nav[_ngcontent-c1] .nav-link[_ngcontent-c1], header[_ngcontent-c1] .header-nav[_ngcontent-c1] .nav-link[_ngcontent-c1] {
     color: #565656 !important;
 }
+.clr-vertical-nav .nav-group-text, .clr-vertical-nav .nav-link {
+    padding: 0 .5rem 0 1.2rem;
+}

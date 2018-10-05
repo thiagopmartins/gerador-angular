@@ -1,17 +1,18 @@
+import { ClarityModule, ClrFormsNextModule } from '@clr/angular';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ApolloConfigModule } from './../apollo-config.module';
+import { DataService } from '../providers/data.service';
 import { ElectronService } from '../providers/electron.service';
-
 @NgModule({
   exports: [
     ApolloConfigModule,
     ClarityModule,
+    ClrFormsNextModule,
     BrowserAnimationsModule,
   ],
-  providers: [ElectronService]
+  providers: [ElectronService, DataService]
 })
 export class CoreModule {
 

@@ -1,0 +1,24 @@
+input[type='file'] {
+    display: none
+}
+
+.input-button {
+    background-color: #2fb995;
+    color: #fff;
+    margin: 1.5rem 0.8rem 0.6rem 0;
+    padding: 6px 20px;
+    min-width: 207px;
+    text-align: center;
+}
+.input-button:hover {
+    background-color: #2fb995
+}
+.title {
+    font-weight: 600;
+}
+.col-xs-12 {
+    padding: 0 !important;
+}
+#btn-destino{
+    margin-top: 0.5rem !important;
+}

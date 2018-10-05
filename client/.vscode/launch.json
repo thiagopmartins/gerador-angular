@@ -1,0 +1,56 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "electron",
+            "request": "launch",
+            "name": "Launch Electron",
+            "appDir": "${workspaceRoot}/dist/electron.prod.js",
+            "sourceMaps": true
+        },
+        {
+            "type": "electron",
+            "request": "launch",
+            "name": "Launch Electron here",
+            "sourceMaps": true
+        },
+        {
+            "name": "Debug Main Process",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}/dist",
+            //"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+            // Use the following for Windows
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd",
+            "sourceMaps": true, 
+            "program": "${workspaceRoot}/dist/electron.prod.js",
+            "outFiles": ["${workspaceRoot}/dist/**/*.js"]
+        },
+        {
+            "name": "Debug Dev Renderer Process",
+            "type": "chrome",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd",
+            "runtimeArgs": [
+              "${workspaceRoot}/dist",
+              "--enable-logging",
+              "--remote-debugging-port=9222"
+            ],
+            "sourceMaps": true,     
+            "trace": "verbose",       
+            "webRoot": "${workspaceRoot}"
+                
+        },
+        {
+           // haven't been able to get this to work.
+            "name": "Attach to Chrome, with sourcemaps",
+            "type": "chrome",
+            "request": "attach",
+            "url": "http://localhost:3000/*",
+            "port": 9222,
+            "sourceMaps": true,
+            "trace": "verbose", 
+            "webRoot": "${workspaceRoot}"
+        }
+    ]
+}
