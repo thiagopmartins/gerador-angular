@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
         title: 'Integrador',
         icon: 'deploy',
         link:   './integrador'
-      }      
+      }          
     ];
   }
 }

@@ -43,6 +43,7 @@ export class IntegradorComponent implements OnInit, OnDestroy {
 
   onChange(event) {
     if(this.electron.isElectron()){
+      console.log(event);
       let key = event.srcElement.id;
       this.integrador[`${key}`] = event.srcElement.files[0].path;
       this.form.controls[key].setValue(this.integrador[`${key}`]);  
