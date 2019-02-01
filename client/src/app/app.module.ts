@@ -1,6 +1,3 @@
-import { TEFComponent } from './dashboard/integrador/TEF/tef.component';
-import { POSComponent } from './dashboard/integrador/POS/pos.component';
-import { IntegradorService } from './dashboard/integrador/integrador.service';
 import { CoreModule } from './core/core.module';
 import { DialogService } from './dialog.service';
 
@@ -11,19 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EmpresaComponent } from './dashboard/empresa/empresa.component';
-import { EmpresaService } from './dashboard/empresa/empresa.service';
-import { IntegradorComponent } from './dashboard/integrador/integrador.component';
+import { SendComponent } from './dashboard/send/send.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    EmpresaComponent,
-    IntegradorComponent,
-    POSComponent,
-    TEFComponent
+    SendComponent
   ],
   imports: [
     AppRoutingModule,
@@ -31,7 +23,7 @@ import { IntegradorComponent } from './dashboard/integrador/integrador.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DialogService, EmpresaService, IntegradorService],
+  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

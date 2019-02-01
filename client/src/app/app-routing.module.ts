@@ -1,16 +1,13 @@
-import { TEFComponent } from './dashboard/integrador/TEF/tef.component';
-import { POSComponent } from './dashboard/integrador/POS/pos.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EmpresaComponent } from './dashboard/empresa/empresa.component';
-import { IntegradorComponent } from './dashboard/integrador/integrador.component';
+import { SendComponent } from './dashboard/send/send.component';
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/dashboard/empresa',
+        redirectTo: '/dashboard/send',
         pathMatch: 'full'
     },
     {
@@ -23,31 +20,14 @@ const appRoutes: Routes = [
                 pathMatch: 'full'
             },
             {
-                path: 'empresa',
-                component: EmpresaComponent,
+                path: 'send',
+                component: SendComponent,
                 data: {
-                    title: 'Cadastro de Empresa'
+                    title: 'Envio de REINF'
                 }
-            },
-            {
-                path: 'integrador',
-                component: IntegradorComponent,
-                data: {
-                    title: 'Envio Integrador'
-                },
-                children: [
-                    {
-                        path: 'pos',
-                        component: POSComponent
-                    },
-                    {
-                        path: 'tef',
-                        component: TEFComponent
-                    }                    
-                ]
             }
         ]
-    }
+    }    
 ]
 
 @NgModule({

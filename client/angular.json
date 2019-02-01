@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ferramenta-nfce": {
+    "ferramenta-NFSe": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ferramenta-nfce:build"
+            "browserTarget": "ferramenta-NFSe:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ferramenta-nfce:build:production"
+              "browserTarget": "ferramenta-NFSe:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ferramenta-nfce:build"
+            "browserTarget": "ferramenta-NFSe:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "ferramenta-nfce-e2e": {
+    "ferramenta-NFSe-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -110,7 +110,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ferramenta-nfce:serve"
+            "devServerTarget": "ferramenta-NFSe:serve"
           }
         },
         "lint": {
@@ -125,7 +125,7 @@
       }
     }
   },
-  "defaultProject": "ferramenta-nfce",
+  "defaultProject": "ferramenta-NFSe",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

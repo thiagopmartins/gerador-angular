@@ -1,14 +1,14 @@
-import { FerramentaNFCePage } from './app.po';
+import { FerramentaNFSePage } from './app.po';
 
 describe('Ferramenta NFC-e', () => {
-  let page: FerramentaNFCePage;
+  let page: FerramentaNFSePage;
 
   beforeEach(() => {
-    page = new FerramentaNFCePage();
+    page = new FerramentaNFSePage();
   });
 
   it('Deve exibir o titulo', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Ferramenta NFCe');
+    expect(page.getParagraphText()).toEqual('Ferramenta NFSe');
   });
 });

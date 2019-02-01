@@ -1,0 +1,35 @@
+<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+  <form [formGroup]="form">
+      <div>
+          <label class="input-button" for='caminho'>
+              Selecione o arquivo base
+          </label>
+          <input type="file" id="caminho" value="" (change)="onChange($event)" />
+          <label>
+              <input type="text" formControlName="caminho" size="100" maxlength="100" autocomplete="off">
+          </label>
+          <label class="input-button" for='destino' id="btn-destino">
+              Selecione o destino
+          </label>
+          <input type="file" id="destino" (change)="onChange($event)" webkitdirectory multiple />
+          <label>
+              <input type="text" formControlName="destino" size="100" maxlength="100" autocomplete="off">
+          </label>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+              <label class="title ajuste" for="nomenclatura">NOMENCLATURA:</label>
+              <label>
+                  <input type="text" placeholder="NDDTES1000001001#" id="nomenclatura" formControlName="nomenclatura"
+                      size="30" maxlength="30" autocomplete="off">
+              </label>
+              <label class="title ajuste" for="nomenclatura">NOMENCLATURA:</label>
+              <label>
+                  <input type="text" placeholder="NDDTES1000001001#" id="nomenclatura" formControlName="nomenclatura"
+                      size="30" maxlength="30" autocomplete="off">
+              </label>               
+          </div>
+      </div>
+      <button class="btn btn-primary" type="submit" (click)="submit()">GERAR DOCUMENTO</button>
+  </form>
+</div>

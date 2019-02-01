@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApolloConfigModule } from './../apollo-config.module';
 import { DataService } from '../providers/data.service';
 import { ElectronService } from '../providers/electron.service';
+import { DocumentSender } from 'app/providers/document.service';
 @NgModule({
   exports: [
     ApolloConfigModule,
@@ -12,7 +13,7 @@ import { ElectronService } from '../providers/electron.service';
     ClrFormsNextModule,
     BrowserAnimationsModule,
   ],
-  providers: [ElectronService, DataService]
+  providers: [ElectronService, DataService, DocumentSender]
 })
 export class CoreModule {
 

@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class FerramentaNFCePage {
+export class FerramentaNFSePage {
   navigateTo() {
     return browser.get('/');
   }

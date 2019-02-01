@@ -3,21 +3,30 @@ input[type='file'] {
 }
 
 .input-button {
-    background-color: #2fb995;
-    color: #fff;
+    border: 1px solid #2fb995;
+    background-color: #fff;
+    color: #2fb995;
     margin: 1.5rem 0.8rem 0.6rem 0;
     padding: 6px 20px;
     min-width: 207px;
+    transition-duration: 0.5s;
     text-align: center;
 }
 .input-button:hover {
-    background-color: #2fb995
+    background-color: #2fb995;
+    color: #FFF;
 }
 .title {
     font-weight: 600;
 }
 .col-xs-12 {
     padding: 0 !important;
+}
+.btn-primary:not(:disabled) {
+    border-color: #2fb995 !important;
+    border-radius: 0;
+    background-color: #2fb995 !important;
+    min-width: 207px;
 }
 #btn-destino{
     margin-top: 0.5rem !important;

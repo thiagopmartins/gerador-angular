@@ -24,15 +24,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.options = [
       {
-        title: 'Empresas',
-        icon: 'store',
-        link:   './empresa'
-      },
-      {
-        title: 'Integrador',
-        icon: 'deploy',
-        link:   './integrador'
-      }          
+        title: 'Enviar REINF',
+        icon: 'export',
+        link:   './send'
+      }         
     ];
   }
 }
